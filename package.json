@@ -1,5 +1,5 @@
 {
-  "name": "clear_my_list_utils",
+  "name": "@clearmylist/utils",
   "version": "0.8.0",
   "description": "Utilities of https://ClearMyList.io.",
   "main": "index.ts",
@@ -13,6 +13,36 @@
   "author": "https://ClearMyList.io",
   "license": "MIT",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "eslint": "8.0.1",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-standard-with-typescript": "34.0.1",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-n": "15.0.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "7.32.2",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2",
+    "prettier": "2.8.8",
     "typescript": "5.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClearMyList/utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ClearMyList/utils/issues"
+  },
+  "homepage": "https://github.com/ClearMyList/utils#readme",
+  "husky":{
+    "hooks":{
+      "pre-commit":"lint-staged"
+    }
+  },
+  "lint-staged":{
+    "**/*.ts":[
+      "eslint --fix","git add"
+    ]
   }
 }
