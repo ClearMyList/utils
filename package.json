@@ -1,10 +1,18 @@
 {
   "name": "@clearmylist/utils",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Utilities of https://ClearMyList.io.",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --fix --max-warnings=0",
+    "format": "prettier -w .",
+    "test": "",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "tsc": "tsc --build --force",
+    "pub": "rm -rf dist && prettier -w src && npm run tsc && npm publish --access public && rm -rf dist"
   },
   "keywords": [
     "Utils",
@@ -13,6 +21,7 @@
   "author": "https://ClearMyList.io",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "18.15.11",
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "eslint": "8.0.1",
     "eslint-config-prettier": "8.8.0",
@@ -24,6 +33,7 @@
     "eslint-plugin-react": "7.32.2",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
+    "pinst": "3.0.0",
     "prettier": "2.8.8",
     "typescript": "5.0.4"
   },
@@ -35,14 +45,15 @@
     "url": "https://github.com/ClearMyList/utils/issues"
   },
   "homepage": "https://github.com/ClearMyList/utils#readme",
-  "husky":{
-    "hooks":{
-      "pre-commit":"lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
-  "lint-staged":{
-    "**/*.ts":[
-      "eslint --fix","git add"
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix",
+      "git add"
     ]
   }
 }
