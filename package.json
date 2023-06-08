@@ -1,6 +1,6 @@
 {
   "name": "@clearmylist/utils",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Utilities of https://ClearMyList.io.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
